@@ -1,18 +1,5 @@
 ids = input.split(',')
 
-check_map = {
-    1:[],
-    2:[1],
-    3:[1],
-    4:[1,2],
-    5:[1],
-    6:[1,2,3],
-    7:[1],
-    8:[1,2,4],
-    9:[1,3],
-    10:[1,2,5]
-}
-
 def day2(part2 = False):
     invalid = []
     for i in ids:
@@ -21,7 +8,7 @@ def day2(part2 = False):
         for j in range(start,end+1):
             num = str(j)
             if part2:
-                check_nums = check_map[len(num)]
+                check_nums = [i for i in range(1,len(num)) if (not len(num) % i)]
             else:
                 if len(num) % 2:
                     check_nums = []
